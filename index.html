@@ -61,16 +61,16 @@
     }
 
     function startPrank() {
-        alert("🚨 警告：检测到你近期监考不认真！");
+        alert("🚨 针对聪明的小珺近期工作的问题！");
         
-        const pay = confirm("现在立刻 V 洁洁king 500 元（疯狂星期四预付款），点击'确定'进行转账。");
+        const pay = confirm("明天不准上课，陈老师代上，点击'确定'表示同意。");
         
         if (pay) {
-            alert("感谢老板！截图已发至我的邮箱1342087067@qq.com，请在5分钟内完成支付，否则启动强制代课模式。");
+            alert("希沃检测多次不认真，惩罚你下学期发配博物馆。");
             showFinalMessage("🎉 感谢合作", "已收到您的诚意金，明天上午的课我来上！");
         } else {
             alert("哟呵，居然敢点取消？");
-            showFinalMessage("⚠️ 最终通告", "既然你拒绝了 500 元的诚意协议...\n\n明天上午的课，由你来上！\n教材已寄出，请准时到教室。");
+            showFinalMessage("⚠️ 最终通告", "既然你拒绝了发配博物馆...\n\n那就去图书馆！\n请准时到岗。");
         }
     }
 
@@ -80,7 +80,7 @@
             <h1 style="color: #ff4757;">${title}</h1>
             <p style="font-size: 1.2rem; line-height: 1.5;">${message.replace(/\n/g, '<br>')}</p>
             <hr>
-            <p><strong>温馨提示：这只是个玩笑，别当真！😄</strong></p>
+            <p><strong>请即刻执行！😄</strong></p>
             <button onclick="location.reload()">再玩一次</button>
             <button onclick="sharePrank()" style="background: #2ed573; margin-left: 10px;">分享给朋友</button>
         `;
