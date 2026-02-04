@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>来自好友的温馨提示</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            border: 2px dashed #ff4757;
+            background: white;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .warning {
+            color: #ff4757;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ff3742;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainContent">
+    <h1 class="warning">⚠️ 系统检测到你的账户异常</h1>
+    <p>请按照弹窗指示操作，否则后果自负...</p>
+    <p><small>（本页面仅供娱乐，请勿当真）</small></p>
+</div>
+
+<script>
+    window.onload = function() {
+        // 延迟执行，让用户先看到初始页面
+        setTimeout(startPrank, 1000);
+    }
+
+    function startPrank() {
+        alert("🚨 警告：检测到你近期有违法行为！");
+        
+        const pay = confirm("现在立刻 V 我 500 元（疯狂星期四预付款），点击'确定'进行转账。");
+        
+        if (pay) {
+            alert("感谢老板！截图已发至我的邮箱，请在5分钟内完成支付，否则启动强制代课模式。");
+            showFinalMessage("🎉 感谢合作", "已收到您的诚意金，明天上午的课我来上！");
+        } else {
+            alert("哟呵，居然敢点取消？");
+            showFinalMessage("⚠️ 最终通告", "既然你拒绝了 500 元的诚意协议...\n\n明天上午的课，由你来上！\n教材已寄出，请准时到教室。");
+        }
+    }
+
+    function showFinalMessage(title, message) {
+        const container = document.getElementById('mainContent');
+        container.innerHTML = `
+            <h1 style="color: #ff4757;">${title}</h1>
+            <p style="font-size: 1.2rem; line-height: 1.5;">${message.replace(/\n/g, '<br>')}</p>
+            <hr>
+            <p><strong>温馨提示：这只是个玩笑，别当真！😄</strong></p>
+            <button onclick="location.reload()">再玩一次</button>
+            <button onclick="sharePrank()" style="background: #2ed573; margin-left: 10px;">分享给朋友</button>
+        `;
+    }
+
+    function sharePrank() {
+        alert("复制链接分享给朋友：\n\n" + window.location.href);
+    }
+</script>
+
+</body>
+</html>
